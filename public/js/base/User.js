@@ -1,16 +1,10 @@
 // This is a core of the Module
 
 var User = new Class({
-	Implements: [Options],
-	options: {
-		name: '',
-		age: -1
-	},
-	initialize: function(options) {
-		this.setOptions(options);
-		this.name = this.options.name;
-	},
-	// print: function {},
+	initialize: function(name, age) {
+		this.name = name;
+		this.age = age || -1;
+	}
 });
 
 // check to see if you are running inside of node.js and export if you are
