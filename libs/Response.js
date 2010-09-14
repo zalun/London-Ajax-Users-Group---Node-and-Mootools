@@ -3,7 +3,17 @@ exports.Response = new Class({
 		this.response = response;
 	},
 	renderHtml: function(result) {
-		template = "<!DOCTYPE html>\n"+"<html>" +"<head>\n"+"<title>{title}</title>\n"+"</head>\n"+"<body>{body}</body>\n"+"</html>";
+		var head = ''+
+'<script type="text/javascript" src="/media/js/libs/mootools-core.js"></script>\n'+
+'<script type="text/javascript" src="/media/js/libs/mootools-more.js"></script>\n';
+		if (result.models) {
+			result.models.each(function(model) {
+				head += ''+
+'<script type="text/javascript" src="/media/js/base/'+model+'.js"></script>\n'+
+'<script type="text/javascript" src="/media/js/model/'+model+'.js"></script>\n';
+			});
+		}
+		template = "<!DOCTYPE html>\n"+"<html>" +"<head>\n"+"<title>{title}</title>\n"+head+"</head>\n"+"<body>{body}</body>\n"+"</html>";
 		return template.substitute(result);
 	},
 	returnHtml: function(result) {
