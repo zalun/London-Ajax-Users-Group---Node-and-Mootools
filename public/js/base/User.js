@@ -5,11 +5,11 @@ var User = new Class({
 		this.name = name;
 		this.age = age || -1;
 	},
-	is_valid: function() {
-		if (!this.is_name_valid()) return false;
+	isValid: function() {
+		if (!this.isNameValid()) return false;
 		return true;
 	},
-	is_name_valid: function() {
+	isNameValid: function() {
 		return this.name.match('^[a-zA-Z ]+$');
 	}
 });

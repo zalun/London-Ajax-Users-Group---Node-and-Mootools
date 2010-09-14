@@ -8,14 +8,14 @@ exports.getResponse = function () {
 	};
 	if (this.request.url.query && this.request.url.query.name) {
 		var user = new User(this.request.url.query.name);
-		if (user.is_valid()) {
+		if (user.isValid()) {
 			result.body = '<p>Hello, {name}</p>'.substitute(user);
 		} else {
 			result.body = '<p>Error. Name is not valid.</p>';
 		}
 	} 
 		result.body += ''+
-'<form>'+
+'<form id="user-form">'+
 	'<p>Please provide yor name</p>'+
 	'<p>'+
 		'<label for="name">name:</label>'+
